@@ -1,6 +1,9 @@
 #!/bin/bash
-
+echo "Remember to run this container with --privileged"
 set -e
+
+echo "Disabling ipv6"
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
 
 configs=`find /etc/wireguard -type f -printf "%f\n"`
 if [[ -z $configs ]]; then
@@ -25,6 +28,11 @@ shutdown () {
     wg-quick down $interface
     exit 0
 }
+
+USERNAME=${USERNAME:-proxy}
+PASSWORD=${PASSWORD:-wireguard}
+echo PROXY: "$USERNAME:$PASSWORD"
+gost -L=socks5://"$USERNAME":"$PASSWORD"@0.0.0.0:1080
 
 trap shutdown SIGTERM SIGINT SIGQUIT
 
