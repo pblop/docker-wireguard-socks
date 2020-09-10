@@ -36,11 +36,9 @@ echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
 USERNAME=${USERNAME:-proxy}
 PASSWORD=${PASSWORD:-wireguard}
+echo CURRENT IP: `curl -s http://checkip.amazonaws.com`
 echo PROXY AUTH: "$USERNAME:$PASSWORD"
 echo example: curl --proxy socks5://"$USERNAME:$PASSWORD"@127.0.0.1:1080 https://api.ipify.org
-
-echo CURRENT IP: `curl -s http://checkip.amazonaws.com`
-
 gost -L=socks5://"$USERNAME":"$PASSWORD"@0.0.0.0:1080
 
 trap shutdown SIGTERM SIGINT SIGQUIT
