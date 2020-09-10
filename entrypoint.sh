@@ -31,6 +31,9 @@ shutdown () {
     exit 0
 }
 
+echo "options single-request-reopen" >> /etc/resolv.conf
+echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
+
 USERNAME=${USERNAME:-proxy}
 PASSWORD=${PASSWORD:-wireguard}
 echo PROXY AUTH: "$USERNAME:$PASSWORD"
