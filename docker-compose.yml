@@ -2,6 +2,7 @@ version: "3.5"
 services:
   gost:
     image: ginuerzh/gost
+    restart: always
     command: >
         -L="socks5://proxy:wireguard@0.0.0.0:1080"
         -F="socks5://proxy:wireguard@localhost:1080?strategy=round&max_fails=1&fail_timeout=30s&ip=a:1080,b:1080,c:1080,d:1080,e:1080,f:1080,g:1080,h:1080,i:1080,j:1080,k:1080,l:1080,m:1080,n:1080,o:1080,p:1080,q:1080,r:1080,s:1080,t:1080,u:1080,v:1080,w:1080,x:1080,y:1080,z:1080"
@@ -11,131 +12,157 @@ services:
       - wireguard
   a:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   b:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   c:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   d:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   e:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   f:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   g:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   h:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   i:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   j:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   k:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   l:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   m:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   n:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   o:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   p:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   q:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   r:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   s:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   t:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   u:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   v:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   w:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   x:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   y:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
   z:
     image: diwu1989/wireguardproxy
+    restart: always
     privileged: true
     networks:
       - wireguard
