@@ -31,6 +31,8 @@ shutdown () {
     exit 0
 }
 
+trap shutdown SIGTERM SIGINT SIGQUIT
+
 echo "options single-request-reopen" >> /etc/resolv.conf
 echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
@@ -39,9 +41,7 @@ PASSWORD=${PASSWORD:-wireguard}
 echo CURRENT IP: `curl -s http://checkip.amazonaws.com`
 echo PROXY AUTH: "$USERNAME:$PASSWORD"
 echo example: curl --proxy socks5://"$USERNAME:$PASSWORD"@127.0.0.1:1080 https://api.ipify.org
-gost -L=socks5://"$USERNAME":"$PASSWORD"@0.0.0.0:1080
-
-trap shutdown SIGTERM SIGINT SIGQUIT
+microsocks -i 0.0.0.0 -p 1080 -u "$USERNAME" -P "$PASSWORD"
 
 sleep infinity &
 wait $!

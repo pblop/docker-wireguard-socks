@@ -1,6 +1,6 @@
-# Wireguard + GOST all in one
+# Wireguard + SOCKS proxy all in one
 
-This container image runs Wireguard + GOST SOCKS proxy.
+This container image runs Wireguard + SOCKS proxy.
 
 ```bash
 docker run 
