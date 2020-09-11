@@ -31,6 +31,10 @@ shutdown () {
     exit 0
 }
 
+echo "options single-request-reopen" >> /etc/resolv.conf
+echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
+service nscd restart
+
 # Healthcheck
 (
     INTERVAL="60"
@@ -49,9 +53,6 @@ shutdown () {
 )&
 
 trap shutdown SIGTERM SIGINT SIGQUIT
-
-echo "options single-request-reopen" >> /etc/resolv.conf
-echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
 USERNAME=${USERNAME:-proxy}
 PASSWORD=${PASSWORD:-wireguard}
