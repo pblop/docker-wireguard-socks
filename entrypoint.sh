@@ -31,6 +31,23 @@ shutdown () {
     exit 0
 }
 
+# Healthcheck
+(
+    INTERVAL="60"
+    echo "Healthcheck in background every $INTERVAL seconds"
+    while true; do
+        sleep $INTERVAL
+        echo -e "HEAD http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            echo `date` "VPN healthy" `wg show | grep transfer`
+        else
+            echo `date` "VPN dead"
+            pkill microsocks
+            exit 1
+        fi
+    done
+)&
+
 trap shutdown SIGTERM SIGINT SIGQUIT
 
 echo "options single-request-reopen" >> /etc/resolv.conf
@@ -42,6 +59,3 @@ echo CURRENT IP: `curl -s http://checkip.amazonaws.com`
 echo PROXY AUTH: "$USERNAME:$PASSWORD"
 echo example: curl --proxy socks5://"$USERNAME:$PASSWORD"@127.0.0.1:1080 https://api.ipify.org
 microsocks -i 0.0.0.0 -p 1080 -u "$USERNAME" -P "$PASSWORD"
-
-sleep infinity &
-wait $!
