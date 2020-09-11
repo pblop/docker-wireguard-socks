@@ -11,12 +11,12 @@ services:
     restart: always
     environment:
       LOG_LEVEL: info
-      TIMEOUT_CONNECT: 1000
-      TIMEOUT_CLIENT: 5000
-      TIMEOUT_SERVER: 5000
+      TIMEOUT_CONNECT: 500
+      TIMEOUT_CLIENT: 3000
+      TIMEOUT_SERVER: 3000
       FRONTEND_PORT: 1080
       BACKENDS_MODE: tcp
-      BACKENDS: "p0:1080 p1:1080 p2:1080 p3:1080 p4:1080 p5:1080 p6:1080 p7:1080 p8:1080 p9:1080 p10:1080 p11:1080 p12:1080 p13:1080 p14:1080 p15:1080 p16:1080 p17:1080 p18:1080 p19:1080 p20:1080 p21:1080 p22:1080 p23:1080 p24:1080 p25:1080 p26:1080 p27:1080 p28:1080 p29:1080 p30:1080 p31:1080 p32:1080 p33:1080 p34:1080 p35:1080 p36:1080 p37:1080 p38:1080 p39:1080 p40:1080 p41:1080 p42:1080 p43:1080 p44:1080 p45:1080 p46:1080 p47:1080 p48:1080 p49:1080 p50:1080 p51:1080 p52:1080 p53:1080 p54:1080 p55:1080 p56:1080 p57:1080 p58:1080 p59:1080 p60:1080 p61:1080 p62:1080 p63:1080 p64:1080 p65:1080 p66:1080 p67:1080 p68:1080 p69:1080 p70:1080 p71:1080 p72:1080 p73:1080 p74:1080 p75:1080 p76:1080 p77:1080 p78:1080 p79:1080 p80:1080 p81:1080 p82:1080 p83:1080 p84:1080 p85:1080 p86:1080 p87:1080 p88:1080 p89:1080 p90:1080 p91:1080 p92:1080 p93:1080 p94:1080 p95:1080 p96:1080 p97:1080 p98:1080 p99:1080"
+      BACKENDS: "p0:1080 p1:1080 p2:1080 p3:1080 p4:1080 p5:1080 p6:1080 p7:1080 p8:1080 p9:1080 p10:1080 p11:1080 p12:1080 p13:1080 p14:1080 p15:1080 p16:1080 p17:1080 p18:1080 p19:1080 p20:1080 p21:1080 p22:1080 p23:1080 p24:1080 p25:1080 p26:1080 p27:1080 p28:1080 p29:1080 p30:1080 p31:1080 p32:1080 p33:1080 p34:1080 p35:1080 p36:1080 p37:1080 p38:1080 p39:1080 p40:1080 p41:1080 p42:1080 p43:1080 p44:1080 p45:1080 p46:1080 p47:1080 p48:1080 p49:1080 p50:1080 p51:1080 p52:1080 p53:1080 p54:1080 p55:1080 p56:1080 p57:1080 p58:1080 p59:1080 p60:1080 p61:1080 p62:1080 p63:1080 p64:1080 p65:1080 p66:1080 p67:1080 p68:1080 p69:1080 p70:1080 p71:1080 p72:1080 p73:1080 p74:1080 p75:1080 p76:1080 p77:1080 p78:1080 p79:1080 p80:1080 p81:1080 p82:1080 p83:1080 p84:1080 p85:1080 p86:1080 p87:1080 p88:1080 p89:1080 p90:1080 p91:1080 p92:1080 p93:1080 p94:1080 p95:1080 p96:1080 p97:1080 p98:1080 p99:1080 p100:1080 p101:1080 p102:1080 p103:1080 p104:1080 p105:1080 p106:1080 p107:1080 p108:1080 p109:1080 p110:1080 p111:1080 p112:1080 p113:1080 p114:1080 p115:1080 p116:1080 p117:1080 p118:1080 p119:1080 p120:1080 p121:1080 p122:1080 p123:1080 p124:1080 p125:1080 p126:1080 p127:1080 p128:1080 p129:1080 p130:1080 p131:1080 p132:1080 p133:1080 p134:1080 p135:1080 p136:1080 p137:1080 p138:1080 p139:1080 p140:1080 p141:1080 p142:1080 p143:1080 p144:1080 p145:1080 p146:1080 p147:1080 p148:1080 p149:1080 p150:1080 p151:1080 p152:1080 p153:1080 p154:1080 p155:1080 p156:1080 p157:1080 p158:1080 p159:1080 p160:1080 p161:1080 p162:1080 p163:1080 p164:1080 p165:1080 p166:1080 p167:1080 p168:1080 p169:1080 p170:1080 p171:1080 p172:1080 p173:1080 p174:1080 p175:1080 p176:1080 p177:1080 p178:1080 p179:1080 p180:1080 p181:1080 p182:1080 p183:1080 p184:1080 p185:1080 p186:1080 p187:1080 p188:1080 p189:1080 p190:1080 p191:1080 p192:1080 p193:1080 p194:1080 p195:1080 p196:1080 p197:1080 p198:1080 p199:1080"
   p0:
     image: diwu1989/wireguardproxy
     restart: always
@@ -612,6 +612,606 @@ services:
     networks:
       - wireguard
   p99:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p100:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p101:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p102:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p103:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p104:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p105:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p106:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p107:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p108:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p109:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p110:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p111:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p112:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p113:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p114:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p115:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p116:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p117:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p118:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p119:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p120:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p121:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p122:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p123:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p124:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p125:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p126:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p127:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p128:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p129:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p130:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p131:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p132:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p133:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p134:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p135:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p136:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p137:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p138:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p139:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p140:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p141:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p142:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p143:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p144:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p145:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p146:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p147:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p148:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p149:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p150:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p151:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p152:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p153:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p154:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p155:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p156:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p157:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p158:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p159:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p160:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p161:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p162:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p163:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p164:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p165:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p166:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p167:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p168:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p169:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p170:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p171:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p172:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p173:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p174:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p175:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p176:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p177:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p178:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p179:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p180:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p181:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p182:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p183:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p184:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p185:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p186:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p187:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p188:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p189:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p190:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p191:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p192:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p193:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p194:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p195:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p196:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p197:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p198:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    networks:
+      - wireguard
+  p199:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
