@@ -31,7 +31,7 @@ echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
     INTERVAL="${ROTATION_INTERVAL:-600}"
     echo VPN rotation interval: $INTERVAL seconds
     while true; do
-        sleep $[( $RANDOM % 100 ) + $INTERVAL ]s
+        sleep $[( $RANDOM % $INTERVAL ) + $INTERVAL ]s
         echo `date` "Rotating VPN connection"
         wg-quick down $interface
         wg-quick up $interface
