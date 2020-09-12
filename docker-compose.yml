@@ -21,299 +21,449 @@ services:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p1:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p2:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p3:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p4:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p5:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p6:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p7:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p8:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p9:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p10:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p11:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p12:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p13:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p14:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p15:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p16:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p17:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p18:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p19:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p20:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p21:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p22:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p23:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p24:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p25:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p26:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p27:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p28:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p29:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p30:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p31:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p32:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p33:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p34:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p35:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p36:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p37:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p38:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p39:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p40:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p41:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p42:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p43:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p44:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p45:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p46:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p47:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p48:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard
   p49:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
+    environment:
+      STAGGERED_START: 20
+      RECONNECT_INTERVAL: 300
     networks:
       - wireguard

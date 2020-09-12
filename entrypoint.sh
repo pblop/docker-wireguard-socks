@@ -16,6 +16,9 @@ fi
 config=`echo $configs | head -n 1`
 interface="${config%.*}"
 
+# stagger the startup
+sleep $[( $RANDOM % ${STAGGERED_START:-1} )]s
+
 wg-quick up $interface
 
 shutdown () {
@@ -28,14 +31,14 @@ echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
 # VPN rotation
 (
-    INTERVAL="${ROTATION_INTERVAL:-300}"
-    echo VPN rotation interval: $INTERVAL seconds
+    INTERVAL="${RECONNECT_INTERVAL:-999999999}"
+    echo VPN reconnect interval: $INTERVAL seconds
     while true; do
         sleep $[( $RANDOM % $INTERVAL ) + $INTERVAL ]s
-        echo `date` "Rotating VPN connection"
+        echo `date` "Reconnecting VPN connection"
         wg-quick down $interface
         wg-quick up $interface
-	echo `date` "NEW IP:" `curl -s http://checkip.amazonaws.com`
+        echo `date` "NEW IP:" `curl -s http://checkip.amazonaws.com`
     done
 )&
 
