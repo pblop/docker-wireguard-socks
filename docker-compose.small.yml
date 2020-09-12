@@ -1,0 +1,119 @@
+version: "3.5"
+networks:
+  wireguard:
+services:
+  haproxy:
+    depends_on:
+      - p9
+    image: eeacms/haproxy
+    ports:
+      - "0.0.0.0:1080:1080"
+    networks:
+      - wireguard
+    restart: always
+    environment:
+      LOG_LEVEL: info
+      TIMEOUT_CONNECT: 500
+      TIMEOUT_CLIENT: 3000
+      TIMEOUT_SERVER: 3000
+      FRONTEND_PORT: 1080
+      BACKENDS_MODE: tcp
+      BACKENDS: "p0:1080 p1:1080 p2:1080 p3:1080 p4:1080 p5:1080 p6:1080 p7:1080 p8:1080 p9:1080"
+  p0:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p1:
+    depends_on:
+      - p0
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p2:
+    depends_on:
+      - p1
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p3:
+    depends_on:
+      - p2
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p4:
+    depends_on:
+      - p3
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p5:
+    depends_on:
+      - p4
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p6:
+    depends_on:
+      - p5
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p7:
+    depends_on:
+      - p6
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p8:
+    depends_on:
+      - p7
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
+  p9:
+    depends_on:
+      - p8
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      RECONNECT_INTERVAL: 300
+    networks:
+      - wireguard
