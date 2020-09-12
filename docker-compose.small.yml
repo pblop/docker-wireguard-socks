@@ -24,6 +24,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -34,6 +35,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -44,6 +46,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -54,6 +57,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -64,6 +68,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -74,6 +79,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -84,6 +90,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -94,6 +101,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -104,6 +112,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
@@ -114,6 +123,7 @@ services:
     restart: always
     privileged: true
     environment:
+      STAGGERED_START: 30
       RECONNECT_INTERVAL: 300
     networks:
       - wireguard
