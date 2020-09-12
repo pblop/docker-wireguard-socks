@@ -18,14 +18,6 @@ interface="${config%.*}"
 
 wg-quick up $interface
 
-docker_network="$(ip -o addr show dev eth0 | awk '$3 == "inet" {print $4}')"
-docker_network_rule=$([ ! -z "$docker_network" ] && echo "! -d $docker_network" || echo "")
-iptables -I OUTPUT ! -o $interface -m mark ! --mark $(wg show $interface fwmark) -m addrtype ! --dst-type LOCAL $docker_network_rule -j REJECT
-
-docker6_network="$(ip -o addr show dev eth0 | awk '$3 == "inet6" {print $4}')"
-docker6_network_rule=$([ ! -z "$docker6_network" ] && echo "! -d $docker6_network" || echo "")
-ip6tables -I OUTPUT ! -o $interface -m mark ! --mark $(wg show $interface fwmark) -m addrtype ! --dst-type LOCAL $docker6_network_rule -j REJECT
-
 shutdown () {
     wg-quick down $interface
     exit 0
@@ -33,6 +25,19 @@ shutdown () {
 
 echo "options single-request-reopen" >> /etc/resolv.conf
 echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
+
+# VPN rotation
+(
+    INTERVAL="${ROTATION_INTERVAL:-3600}"
+    echo VPN rotation interval: $INTERVAL seconds
+    while true; do
+        sleep $[( $RANDOM % 100 ) + $INTERVAL ]s
+        echo `date` "Rotating VPN connection"
+        wg-quick down $interface
+        wg-quick up $interface
+	echo `date` "NEW IP:" `curl -s http://checkip.amazonaws.com`
+    done
+)&
 
 # Healthcheck
 (
