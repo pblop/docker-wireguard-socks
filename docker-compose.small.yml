@@ -14,8 +14,8 @@ services:
     environment:
       LOG_LEVEL: info
       TIMEOUT_CONNECT: 500
-      TIMEOUT_CLIENT: 3000
-      TIMEOUT_SERVER: 3000
+      TIMEOUT_CLIENT: 2000
+      TIMEOUT_SERVER: 2000
       FRONTEND_PORT: 1080
       BACKENDS_MODE: tcp
       BACKENDS: "p0:1080 p1:1080 p2:1080 p3:1080 p4:1080 p5:1080 p6:1080 p7:1080 p8:1080 p9:1080"
@@ -25,7 +25,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p1:
@@ -36,7 +36,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p2:
@@ -47,7 +47,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p3:
@@ -58,7 +58,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p4:
@@ -69,7 +69,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p5:
@@ -80,7 +80,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p6:
@@ -91,7 +91,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p7:
@@ -102,7 +102,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p8:
@@ -113,7 +113,7 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
   p9:
@@ -124,6 +124,6 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 300
+      RECONNECT_INTERVAL: 180
     networks:
       - wireguard
