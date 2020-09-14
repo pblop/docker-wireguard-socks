@@ -28,7 +28,6 @@ shutdown () {
 
 echo "options single-request-reopen" >> /etc/resolv.conf
 echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
-service nscd restart
 
 # VPN rotation
 (
@@ -39,7 +38,6 @@ service nscd restart
         echo `date` "Reconnecting VPN connection"
         wg-quick down $interface
         wg-quick up $interface
-        service nscd restart
         echo `date` "NEW IP:" `curl -s http://checkip.amazonaws.com`
     done
 )&

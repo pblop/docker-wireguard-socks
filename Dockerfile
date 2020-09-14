@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND="noninteractive" apt-get install -y openresolv iptables iproute2 wireguard curl iputils-ping net-tools dnsutils netcat nscd && \
+    DEBIAN_FRONTEND="noninteractive" apt-get install -y openresolv iptables iproute2 wireguard curl iputils-ping net-tools dnsutils netcat && \
     apt-get clean autoclean && \
     apt-get autoremove --yes && \
     rm -rf /var/lib/apt/lists/*
