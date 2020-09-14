@@ -3,8 +3,6 @@ networks:
   wireguard:
 services:
   haproxy:
-    depends_on:
-      - p39
     image: eeacms/haproxy
     ports:
       - "0.0.0.0:1080:1080"
@@ -18,7 +16,7 @@ services:
       TIMEOUT_SERVER: 2000
       FRONTEND_PORT: 1080
       BACKENDS_MODE: tcp
-      BACKENDS: "p0:1080 p1:1080 p2:1080 p3:1080 p4:1080 p5:1080 p6:1080 p7:1080 p8:1080 p9:1080 p10:1080 p11:1080 p12:1080 p13:1080 p14:1080 p15:1080 p16:1080 p17:1080 p18:1080 p19:1080 p20:1080 p21:1080 p22:1080 p23:1080 p24:1080 p25:1080 p26:1080 p27:1080 p28:1080 p29:1080 p30:1080 p31:1080 p32:1080 p33:1080 p34:1080 p35:1080 p36:1080 p37:1080 p38:1080 p39:1080"
+      BACKENDS: "p0:1080 p1:1080 p2:1080 p3:1080 p4:1080 p5:1080 p6:1080 p7:1080 p8:1080 p9:1080 p10:1080 p11:1080 p12:1080 p13:1080 p14:1080 p15:1080 p16:1080 p17:1080 p18:1080 p19:1080 p20:1080 p21:1080 p22:1080 p23:1080 p24:1080 p25:1080 p26:1080 p27:1080 p28:1080 p29:1080 p30:1080 p31:1080 p32:1080 p33:1080 p34:1080 p35:1080 p36:1080 p37:1080 p38:1080 p39:1080 p40:1080 p41:1080 p42:1080 p43:1080 p44:1080 p45:1080 p46:1080 p47:1080 p48:1080 p49:1080"
   p0:
     image: diwu1989/wireguardproxy
     restart: always
@@ -29,8 +27,6 @@ services:
     networks:
       - wireguard
   p1:
-    depends_on:
-      - p0
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -40,8 +36,6 @@ services:
     networks:
       - wireguard
   p2:
-    depends_on:
-      - p1
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -51,8 +45,6 @@ services:
     networks:
       - wireguard
   p3:
-    depends_on:
-      - p2
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -62,8 +54,6 @@ services:
     networks:
       - wireguard
   p4:
-    depends_on:
-      - p3
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -73,8 +63,6 @@ services:
     networks:
       - wireguard
   p5:
-    depends_on:
-      - p4
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -84,8 +72,6 @@ services:
     networks:
       - wireguard
   p6:
-    depends_on:
-      - p5
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -95,8 +81,6 @@ services:
     networks:
       - wireguard
   p7:
-    depends_on:
-      - p6
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -106,8 +90,6 @@ services:
     networks:
       - wireguard
   p8:
-    depends_on:
-      - p7
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -117,8 +99,6 @@ services:
     networks:
       - wireguard
   p9:
-    depends_on:
-      - p8
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -128,8 +108,6 @@ services:
     networks:
       - wireguard
   p10:
-    depends_on:
-       - p9
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -139,8 +117,6 @@ services:
     networks:
       - wireguard
   p11:
-    depends_on:
-      - p10
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -150,8 +126,6 @@ services:
     networks:
       - wireguard
   p12:
-    depends_on:
-      - p11
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -161,8 +135,6 @@ services:
     networks:
       - wireguard
   p13:
-    depends_on:
-      - p12
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -172,8 +144,6 @@ services:
     networks:
       - wireguard
   p14:
-    depends_on:
-      - p13
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -183,8 +153,6 @@ services:
     networks:
       - wireguard
   p15:
-    depends_on:
-      - p14
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -194,8 +162,6 @@ services:
     networks:
       - wireguard
   p16:
-    depends_on:
-      - p15
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -205,8 +171,6 @@ services:
     networks:
       - wireguard
   p17:
-    depends_on:
-      - p16
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -216,8 +180,6 @@ services:
     networks:
       - wireguard
   p18:
-    depends_on:
-      - p17
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -227,8 +189,6 @@ services:
     networks:
       - wireguard
   p19:
-    depends_on:
-      - p18
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -238,8 +198,6 @@ services:
     networks:
       - wireguard
   p20:
-    depends_on:
-      - p19
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -249,8 +207,6 @@ services:
     networks:
       - wireguard
   p21:
-    depends_on:
-      - p20
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -260,8 +216,6 @@ services:
     networks:
       - wireguard
   p22:
-    depends_on:
-      - p21
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -271,8 +225,6 @@ services:
     networks:
       - wireguard
   p23:
-    depends_on:
-      - p22
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -282,8 +234,6 @@ services:
     networks:
       - wireguard
   p24:
-    depends_on:
-      - p23
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -293,8 +243,6 @@ services:
     networks:
       - wireguard
   p25:
-    depends_on:
-      - p24
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -304,8 +252,6 @@ services:
     networks:
       - wireguard
   p26:
-    depends_on:
-      - p25
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -315,8 +261,6 @@ services:
     networks:
       - wireguard
   p27:
-    depends_on:
-      - p26
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -326,8 +270,6 @@ services:
     networks:
       - wireguard
   p28:
-    depends_on:
-      - p27
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -337,8 +279,6 @@ services:
     networks:
       - wireguard
   p29:
-    depends_on:
-      - p28
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -348,8 +288,6 @@ services:
     networks:
       - wireguard
   p30:
-    depends_on:
-      - p29
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -359,8 +297,6 @@ services:
     networks:
       - wireguard
   p31:
-    depends_on:
-      - p30
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -370,8 +306,6 @@ services:
     networks:
       - wireguard
   p32:
-    depends_on:
-      - p31
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -381,8 +315,6 @@ services:
     networks:
       - wireguard
   p33:
-    depends_on:
-      - p32
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -392,8 +324,6 @@ services:
     networks:
       - wireguard
   p34:
-    depends_on:
-      - p33
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -403,8 +333,6 @@ services:
     networks:
       - wireguard
   p35:
-    depends_on:
-      - p34
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -414,8 +342,6 @@ services:
     networks:
       - wireguard
   p36:
-    depends_on:
-      - p35
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -425,8 +351,6 @@ services:
     networks:
       - wireguard
   p37:
-    depends_on:
-      - p36
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -436,8 +360,6 @@ services:
     networks:
       - wireguard
   p38:
-    depends_on:
-      - p37
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -447,8 +369,96 @@ services:
     networks:
       - wireguard
   p39:
-    depends_on:
-      - p38
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p40:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p41:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p42:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p43:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p44:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p45:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p46:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p47:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p48:
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
+  p49:
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true

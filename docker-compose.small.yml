@@ -3,8 +3,6 @@ networks:
   wireguard:
 services:
   haproxy:
-    depends_on:
-      - p9
     image: eeacms/haproxy
     ports:
       - "0.0.0.0:1080:1080"
@@ -29,8 +27,6 @@ services:
     networks:
       - wireguard
   p1:
-    depends_on:
-      - p0
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -40,8 +36,6 @@ services:
     networks:
       - wireguard
   p2:
-    depends_on:
-      - p1
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -51,8 +45,6 @@ services:
     networks:
       - wireguard
   p3:
-    depends_on:
-      - p2
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -62,8 +54,6 @@ services:
     networks:
       - wireguard
   p4:
-    depends_on:
-      - p3
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -73,8 +63,6 @@ services:
     networks:
       - wireguard
   p5:
-    depends_on:
-      - p4
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -84,8 +72,6 @@ services:
     networks:
       - wireguard
   p6:
-    depends_on:
-      - p5
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -95,8 +81,6 @@ services:
     networks:
       - wireguard
   p7:
-    depends_on:
-      - p6
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -106,8 +90,6 @@ services:
     networks:
       - wireguard
   p8:
-    depends_on:
-      - p7
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
@@ -117,8 +99,6 @@ services:
     networks:
       - wireguard
   p9:
-    depends_on:
-      - p8
     image: diwu1989/wireguardproxy
     restart: always
     privileged: true
