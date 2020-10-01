@@ -48,7 +48,7 @@ echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
     echo "Healthcheck in background every $INTERVAL seconds"
     while true; do
         sleep $INTERVAL
-        echo -e "HEAD http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
+        echo -e "HEAD http://google.com HTTP/1.0\n\n" | timeout 2s nc google.com 80 > /dev/null 2>&1
         if [ $? -eq 0 ]; then
             echo `date` "VPN healthy" `wg show | grep transfer`
         else
