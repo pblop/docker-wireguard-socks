@@ -11,9 +11,9 @@ services:
     restart: always
     environment:
       LOG_LEVEL: info
-      TIMEOUT_CONNECT: 500
-      TIMEOUT_CLIENT: 2000
-      TIMEOUT_SERVER: 2000
+      TIMEOUT_CONNECT: 1500
+      TIMEOUT_CLIENT: 4000
+      TIMEOUT_SERVER: 4000
       FRONTEND_PORT: 1080
       BACKENDS_MODE: tcp
       BACKENDS: "p0:1080 p1:1080 p2:1080 p3:1080 p4:1080 p5:1080 p6:1080 p7:1080 p8:1080 p9:1080"
