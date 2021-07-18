@@ -12,7 +12,7 @@ config=`echo $configs | head -n 1`
 interface="${config%.*}"
 
 # stagger the startup
-sleep $[( $RANDOM % ${STAGGERED_START:-1} )]s
+sleep $[( $RANDOM % ${STAGGERED_START:-1} )]
 
 wg-quick up $interface
 
@@ -28,21 +28,20 @@ echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 # VPN rotation
 (
     set +e
+    sleep 2
     INTERVAL="${RECONNECT_INTERVAL:-999999999}"
     echo VPN reconnect interval: $INTERVAL seconds
-    sleep 5
     while true; do
-        PUBLIC_IP=`curl -m 2 -sk https://checkip.amazonaws.com`
+        PUBLIC_IP=`curl -m 5 -sk https://checkip.amazonaws.com`
         echo `date` "PUBLIC IP: $PUBLIC_IP"
         if [ -z "$PUBLIC_IP" ]; then
           echo `date` "No PUBLIC IP found"
         else
-          sleep $[( $RANDOM % $INTERVAL ) + $INTERVAL ]s
+          sleep $[( $RANDOM % $INTERVAL ) + $INTERVAL ]
         fi
         echo `date` "Reconnecting VPN connection"
         wg-quick down $interface 2> /dev/null
         echo `date` "Disconnected VPN connection"
-        sleep 1
         wg-quick up $interface 2> /dev/null
         echo `date` "VPN connection reconnected"
     done
