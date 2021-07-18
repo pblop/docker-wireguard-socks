@@ -1,0 +1,32 @@
+version: "3.5"
+networks:
+  wireguard:
+services:
+  haproxy:
+    image: eeacms/haproxy
+    ports:
+      - "0.0.0.0:1080:1080"
+    networks:
+      - wireguard
+    restart: always
+    environment:
+      LOG_LEVEL: info
+      TIMEOUT_CONNECT: 1000
+      TIMEOUT_CLIENT: 5000
+      TIMEOUT_SERVER: 5000
+      FRONTEND_PORT: 1080
+      BACKENDS_MODE: tcp
+      # dns load balance over multiple instances of wg
+      DNS_ENABLED: "true"
+      BACKENDS: "wg:1080"
+  wg:
+    # use docker-compose to scale multiple instances of this service
+    # --scale wg=10
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 90
+    networks:
+      - wireguard
