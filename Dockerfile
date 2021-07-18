@@ -5,8 +5,7 @@ RUN apk add --no-cache \
         git
 RUN git clone --depth=1 https://github.com/rofl0r/microsocks \
     && cd microsocks \
-    && make LDFLAGS="-static -s -w"
-
+    && make
 
 FROM alpine:3.14
 COPY --from=builder /microsocks/microsocks /usr/local/bin/microsocks
