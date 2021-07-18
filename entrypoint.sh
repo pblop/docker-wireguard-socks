@@ -2,11 +2,6 @@
 echo "Remember to run this container with --privileged"
 set -e
 
-echo "Disabling ipv6"
-sysctl -w net.ipv6.conf.all.disable_ipv6=1
-sysctl -w net.ipv6.conf.default.disable_ipv6=1
-sysctl -w net.ipv6.conf.lo.disable_ipv6=1
-
 configs=`find /etc/wireguard -type f -printf "%f\n"`
 if [[ -z $configs ]]; then
     echo "No configuration files found in /etc/wireguard" >&2
@@ -26,6 +21,7 @@ shutdown () {
     exit 0
 }
 
+# ipv4 dns preferred
 echo "options single-request-reopen" >> /etc/resolv.conf
 echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
