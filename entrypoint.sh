@@ -31,30 +31,46 @@ echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
 # VPN rotation
 (
+    set +e
     INTERVAL="${RECONNECT_INTERVAL:-999999999}"
     echo VPN reconnect interval: $INTERVAL seconds
+    sleep 5
     while true; do
-        sleep $[( $RANDOM % $INTERVAL ) + $INTERVAL ]s
+        PUBLIC_IP=`curl -m 2 -sk https://checkip.amazonaws.com`
+        echo `date` "PUBLIC IP: $PUBLIC_IP"
+        if [ -z "$PUBLIC_IP" ]; then
+          echo `date` "No PUBLIC IP found"
+        else
+          sleep $[( $RANDOM % $INTERVAL ) + $INTERVAL ]s
+        fi
         echo `date` "Reconnecting VPN connection"
-        wg-quick down $interface
-        wg-quick up $interface
-        echo `date` "NEW IP:" `curl -s http://checkip.amazonaws.com`
+        wg-quick down $interface 2> /dev/null
+        echo `date` "Disconnected VPN connection"
+        sleep 1
+        wg-quick up $interface 2> /dev/null
+        echo `date` "VPN connection reconnected"
     done
 )&
 
 # Healthcheck
 (
-    INTERVAL="60"
+    set +e
+    INTERVAL="5"
     echo "Healthcheck in background every $INTERVAL seconds"
+    FAILED=0
     while true; do
         sleep $INTERVAL
-        echo -e "HEAD http://google.com HTTP/1.0\n\n" | timeout 2s nc google.com 80 > /dev/null 2>&1
+        echo -e "HEAD http://google.com HTTP/1.0\n\n" | nc -w 2 google.com 80 &> /dev/null
         if [ $? -eq 0 ]; then
             echo `date` "VPN healthy" `wg show | grep transfer`
+            FAILED=0
         else
-            echo `date` "VPN dead"
-            pkill microsocks
-            exit 1
+            FAILED=$(( FAILED + 1 ))
+            echo `date` "VPN failed health check $FAILED"
+            if (( FAILED > 2 )); then
+              echo `date` "VPN dead"
+              pkill microsocks
+            fi
         fi
     done
 )&
@@ -63,7 +79,6 @@ trap shutdown SIGTERM SIGINT SIGQUIT
 
 USERNAME=${USERNAME:-proxy}
 PASSWORD=${PASSWORD:-wireguard}
-echo CURRENT IP: `curl -s http://checkip.amazonaws.com`
 echo PROXY AUTH: "$USERNAME:$PASSWORD"
 echo example: curl --proxy socks5://"$USERNAME:$PASSWORD"@127.0.0.1:1080 https://api.ipify.org
 microsocks -i 0.0.0.0 -p 1080 -u "$USERNAME" -P "$PASSWORD"

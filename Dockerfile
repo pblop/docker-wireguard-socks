@@ -1,12 +1,18 @@
-FROM ubuntu:20.04
+# build microsocks for alpine
+FROM alpine:3.14 as builder
+RUN apk add --no-cache \
+        build-base \
+        git
+RUN git clone --depth=1 https://github.com/rofl0r/microsocks \
+    && cd microsocks \
+    && make LDFLAGS="-static -s -w"
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND="noninteractive" apt-get install -y openresolv iptables iproute2 wireguard curl iputils-ping net-tools dnsutils netcat && \
-    apt-get clean autoclean && \
-    apt-get autoremove --yes && \
-    rm -rf /var/lib/apt/lists/*
-COPY microsocks_v1.0.1 /usr/local/bin/microsocks
+
+FROM alpine:3.14
+COPY --from=builder /microsocks/microsocks /usr/local/bin/microsocks
+RUN apk add --no-cache \
+        tini openresolv curl iputils iptables ip6tables iproute2 wireguard-tools findutils
 COPY wgcf.conf /etc/wireguard/wgcf.conf
 COPY entrypoint.sh /entrypoint.sh
 EXPOSE 1080/tcp
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["tini", "--", "/entrypoint.sh"]
