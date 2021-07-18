@@ -9,6 +9,8 @@ services:
     networks:
       - wireguard
     restart: always
+    depends_on:
+      - wg
     environment:
       LOG_LEVEL: info
       TIMEOUT_CONNECT: 1000
@@ -27,6 +29,6 @@ services:
     privileged: true
     environment:
       STAGGERED_START: 30
-      RECONNECT_INTERVAL: 90
+      RECONNECT_INTERVAL: 100
     networks:
       - wireguard
