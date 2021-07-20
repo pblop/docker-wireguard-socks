@@ -1,6 +1,7 @@
 version: "3.5"
 networks:
   wireguard:
+    # host must run ipv6 nat container: https://github.com/robbertkl/docker-ipv6nat
     enable_ipv6: true
     ipam:
       driver: default
