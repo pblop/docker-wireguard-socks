@@ -1,0 +1,45 @@
+version: "3.5"
+networks:
+  wireguard:
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.101.0/24
+          gateway: 172.16.101.1
+        - subnet: fdef:dc68:44ff:fff::/64
+          gateway: fdef:dc68:44ff:ffff::1
+services:
+  haproxy:
+    image: eeacms/haproxy
+    ports:
+      - "0.0.0.0:1080:1080"
+    networks:
+      - wireguard
+    restart: always
+    depends_on:
+      - wg
+    environment:
+      LOG_LEVEL: info
+      TIMEOUT_CONNECT: 1000
+      TIMEOUT_CLIENT: 5000
+      TIMEOUT_SERVER: 5000
+      FRONTEND_PORT: 1080
+      BACKENDS_MODE: tcp
+      # dns load balance over multiple instances of wg
+      DNS_ENABLED: "true"
+      BACKENDS: "wg:1080"
+  wg:
+    # use docker-compose to scale multiple instances of this service
+    # --scale wg=10
+    image: diwu1989/wireguardproxy
+    restart: always
+    privileged: true
+    environment:
+      STAGGERED_START: 30
+      RECONNECT_INTERVAL: 100
+      MICROSOCKSBIND: ::
+    networks:
+      - wireguard
+    extra_hosts:
+      - "engage.cloudflareclient.com:2606:4700:d0::a29f:c001"

@@ -76,4 +76,5 @@ USERNAME=${USERNAME:-proxy}
 PASSWORD=${PASSWORD:-wireguard}
 echo PROXY AUTH: "$USERNAME:$PASSWORD"
 echo example: curl --proxy socks5://"$USERNAME:$PASSWORD"@127.0.0.1:1080 https://api.ipify.org
-microsocks -i 0.0.0.0 -p 1080 -u "$USERNAME" -P "$PASSWORD"
+MICROSOCKSBIND=${MICROSOCKSBIND:-"0.0.0.0"}
+microsocks -i $MICROSOCKSBIND -p 1080 -u "$USERNAME" -P "$PASSWORD"
