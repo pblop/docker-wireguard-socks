@@ -7,8 +7,8 @@ networks:
       config:
         - subnet: 172.16.101.0/24
           gateway: 172.16.101.1
-        - subnet: fdef:dc68:44ff:fff::/64
-          gateway: fdef:dc68:44ff:ffff::1
+        - subnet: fdef:dc68:44ff:fff1::/64
+          gateway: fdef:dc68:44ff:fff1::1
 services:
   haproxy:
     image: eeacms/haproxy
@@ -38,7 +38,7 @@ services:
     environment:
       STAGGERED_START: 30
       RECONNECT_INTERVAL: 100
-      MICROSOCKSBIND: ::
+      MICROSOCKSBIND: "::"
     networks:
       - wireguard
     extra_hosts:
